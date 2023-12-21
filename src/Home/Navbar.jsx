@@ -86,10 +86,11 @@ const Navbar = () => {
                         {user.displayName}
                       </button>
                     </li>
-                    <li className="flex justify-center">
+                    <li>
                       <Link to="/dashboard">
                         <button className="btn btn-sm  btn-ghost">
                           DashBoard <FaBookOpen />
+                          <div className="badge badge-secondary">+</div>
                         </button>
                       </Link>
                     </li>
