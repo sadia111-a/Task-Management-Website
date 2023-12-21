@@ -8,7 +8,7 @@ const Users = () => {
       <h2 className="text-5xl mb-12 text-center font-bold text-black my-5">
         Our Users
       </h2>
-      <div className="flex justify-center gap-6 ">
+      <div className="flex-col flex lg:flex-row justify-center gap-6 ">
         <div>
           <img src="https://i.ibb.co/3B91KkC/hero-icon-1.png" alt="" />
         </div>
