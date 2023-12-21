@@ -8,6 +8,10 @@ import ErrorPage from "../Pages/ErrorPage";
 import Login from "../Pages/Login";
 import SignUp from "../Pages/SignUp";
 import PrivateRoute from "../Provider/PrivateRoute";
+import UserHome from "../Pages/DashBoard/UserHome";
+import AddTask from "../Pages/DashBoard/AddTask";
+import AllTask from "../Pages/DashBoard/AllTask";
+import Tasklist from "../Pages/DashBoard/Tasklist";
 export const router = createBrowserRouter([
   {
     path: "/",
@@ -43,5 +47,24 @@ export const router = createBrowserRouter([
         <Dashboard></Dashboard>
       </PrivateRoute>
     ),
+    children: [
+      // normal user route
+      {
+        path: "userHome",
+        element: <UserHome></UserHome>,
+      },
+      {
+        path: "addTask",
+        element: <AddTask></AddTask>,
+      },
+      {
+        path: "allTask",
+        element: <AllTask></AllTask>,
+      },
+      {
+        path: "taskList",
+        element: <Tasklist></Tasklist>,
+      },
+    ],
   },
 ]);

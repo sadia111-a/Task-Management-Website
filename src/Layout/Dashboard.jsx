@@ -5,10 +5,12 @@ import {
   FaList,
   FaSearch,
   FaShoppingCart,
+  FaUsers,
 } from "react-icons/fa";
 import { FaTasks } from "react-icons/fa";
 import { NavLink, Outlet } from "react-router-dom";
 import useAuth from "../hooks/useAuth";
+import { GoChecklist } from "react-icons/go";
 
 const Dashboard = () => {
   const { user } = useAuth();
@@ -35,12 +37,7 @@ const Dashboard = () => {
               User Home
             </NavLink>
           </li>
-          <li>
-            <NavLink to="/dashboard/addTask">
-              <FaCalendar></FaCalendar>
-              Add Task
-            </NavLink>
-          </li>
+
           <li>
             <NavLink to="/dashboard/allTask">
               <FaTasks />
@@ -48,14 +45,15 @@ const Dashboard = () => {
             </NavLink>
           </li>
           <li>
-            <NavLink to="/dashboard/review">
+            <NavLink to="/dashboard/addTask">
               <FaAd></FaAd>
-              Add a Review
+              Add New Task
             </NavLink>
           </li>
+
           <li>
             <NavLink to="/dashboard/taskList">
-              <FaList></FaList>
+              <GoChecklist />
               Task List
             </NavLink>
           </li>
@@ -68,8 +66,8 @@ const Dashboard = () => {
           </li>
           <li>
             <NavLink to="/team">
-              <FaSearch></FaSearch>
-              Team Member
+              <FaUsers></FaUsers>
+              Team Members
             </NavLink>
           </li>
         </ul>

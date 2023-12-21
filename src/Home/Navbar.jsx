@@ -87,7 +87,7 @@ const Navbar = () => {
                       </button>
                     </li>
                     <li>
-                      <Link to="/dashboard">
+                      <Link to="/dashboard/userHome">
                         <button className="btn btn-sm  btn-ghost">
                           DashBoard <FaBookOpen />
                           <div className="badge badge-secondary">+</div>
