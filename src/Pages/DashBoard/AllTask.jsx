@@ -1,7 +1,9 @@
 const AllTask = () => {
   return (
     <div>
-      <h2>All Task</h2>
+      <h2 className="text-5xl mb-12 text-center font-bold text-black my-5">
+        All The Task
+      </h2>
     </div>
   );
 };
