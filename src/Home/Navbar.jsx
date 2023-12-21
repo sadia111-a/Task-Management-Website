@@ -1,10 +1,12 @@
-import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
-import { FaBars, FaBlog } from "react-icons/fa";
+import { useContext, useEffect, useState } from "react";
+import { Link, NavLink } from "react-router-dom";
+import { FaBars, FaBlog, FaBookOpen } from "react-icons/fa";
 import { RxCross2 } from "react-icons/rx";
 import { HiMenuAlt1 } from "react-icons/hi";
+import { AuthContext } from "../Provider/AuthProvider";
 
 const Navbar = () => {
+  const { user, logOut } = useContext(AuthContext);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isSticky, setIsSticky] = useState(false);
 
@@ -32,6 +34,7 @@ const Navbar = () => {
     { link: "Home", path: "/" },
     { link: "About", path: "/about" },
     { link: "Team Members", path: "/team" },
+    // { link: "Login", path: "/login" },
   ];
   return (
     <header className="w-full bg-transparent fixed top-0 right-0 transition-all ease-in duration-300 z-10 lg:z-50">
@@ -63,8 +66,48 @@ const Navbar = () => {
           {/* button for lg device */}
           <div className="space-x-12 hidden lg:flex items-center">
             <button>
-              <HiMenuAlt1 className="w-5 text-3xl hover:text-blue-700" />
-              {/* <FaBars ></FaBars> */}
+              {user?.email ? (
+                <div className="dropdown dropdown-end">
+                  <label
+                    tabIndex={0}
+                    className="btn btn-ghost btn-circle avatar"
+                  >
+                    {/* <div className="w-10 rounded-full">
+                      <img src={user.photoURL} alt={user.displayName} />
+                    </div> */}
+                    <HiMenuAlt1 className="w-5 text-3xl hover:text-blue-700" />
+                  </label>
+                  <ul
+                    tabIndex={0}
+                    className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
+                  >
+                    <li>
+                      <button className="btn btn-sm  btn-ghost">
+                        {user.displayName}
+                      </button>
+                    </li>
+                    <li className="flex justify-center">
+                      <Link to="/dashboard">
+                        <button className="btn btn-sm  btn-ghost">
+                          DashBoard <FaBookOpen />
+                        </button>
+                      </Link>
+                    </li>
+                    <li>
+                      <button
+                        className="btn btn-sm  btn-ghost"
+                        onClick={logOut}
+                      >
+                        Logout
+                      </button>
+                    </li>
+                  </ul>
+                </div>
+              ) : (
+                <Link to="/login">
+                  <button className="btn btn-sm  btn-ghost">Login</button>
+                </Link>
+              )}
             </button>
           </div>
           {/* manu button for the mobile device */}

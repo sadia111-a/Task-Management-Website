@@ -5,6 +5,9 @@ import About from "../Pages/About";
 import Team from "../Pages/Team";
 import Dashboard from "../Layout/Dashboard";
 import ErrorPage from "../Pages/ErrorPage";
+import Login from "../Pages/Login";
+import SignUp from "../Pages/SignUp";
+import PrivateRoute from "../Provider/PrivateRoute";
 export const router = createBrowserRouter([
   {
     path: "/",
@@ -23,10 +26,22 @@ export const router = createBrowserRouter([
         path: "/team",
         element: <Team></Team>,
       },
+      {
+        path: "/login",
+        element: <Login></Login>,
+      },
+      {
+        path: "/signUp",
+        element: <SignUp></SignUp>,
+      },
     ],
   },
   {
     path: "/dashboard",
-    element: <Dashboard></Dashboard>,
+    element: (
+      <PrivateRoute>
+        <Dashboard></Dashboard>
+      </PrivateRoute>
+    ),
   },
 ]);

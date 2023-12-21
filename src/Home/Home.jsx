@@ -1,5 +1,5 @@
 import Banner from "./Banner";
-import Footer from "./Footer";
+
 import Users from "./Users";
 
 const Home = () => {
@@ -9,7 +9,6 @@ const Home = () => {
       <div className="mb-36 mt-36">
         <Users></Users>
       </div>
-      <Footer></Footer>
     </div>
   );
 };
