@@ -1,50 +1,18 @@
-import { useContext } from "react";
-import Swal from "sweetalert2";
-import { AuthContext } from "../../Provider/AuthProvider";
-import { useForm } from "react-hook-form";
-import useAxiosPublic from "../../hooks/useAxiosPublic";
 import { Helmet } from "react-helmet-async";
+import { useForm } from "react-hook-form";
+import { useLoaderData } from "react-router-dom";
+import useAuth from "../../hooks/useAuth";
+import useAxiosPublic from "../../hooks/useAxiosPublic";
 
-const AddTask = () => {
-  const { user } = useContext(AuthContext);
+const EditTask = () => {
+  const { title, deadline, description, priority, _id } = useLoaderData();
   const { register, handleSubmit, reset } = useForm();
+  const { user } = useAuth();
   const axiosPublic = useAxiosPublic();
-  // const navigate = useNavigate();
-
-  const onSubmit = (data) => {
-    axiosPublic.post("/tasks", data).then((res) => {
-      if (res.data.insertedId) {
-        console.log("user added to the database");
-        reset();
-        Swal.fire({
-          position: "top-center",
-          icon: "success",
-          title: "Task Created successfully ",
-          showConfirmButton: false,
-          timer: 1500,
-        });
-        // navigate("/");
-      }
-    });
-    axiosPublic.post("/mytasks", data).then((res) => {
-      if (res.data.insertedId) {
-        console.log("user added to the database");
-        reset();
-        Swal.fire({
-          position: "top-center",
-          icon: "success",
-          title: "Task added to my task ",
-          showConfirmButton: false,
-          timer: 1500,
-        });
-        // navigate("/");
-      }
-    });
-  };
   return (
     <div>
       <Helmet>
-        <title>TaskFlow | Add Task</title>
+        <title>TaskFlow | Edit Task</title>
       </Helmet>
       <div>
         <h2 className="text-5xl mb-12 text-center font-bold text-black my-5">
@@ -164,4 +132,4 @@ const AddTask = () => {
   );
 };
 
-export default AddTask;
+export default EditTask;

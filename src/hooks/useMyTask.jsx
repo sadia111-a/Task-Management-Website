@@ -5,18 +5,19 @@ import useAxiosPublic from "./useAxiosPublic";
 const useMyTask = () => {
   const axiosPublic = useAxiosPublic();
   const { user } = useAuth();
+  console.log("User Email:", user?.email);
   const {
     refetch,
-    data: tasks = [],
+    data: task = [],
     isPending: isLoading,
   } = useQuery({
-    queryKey: ["tasks", user?.email],
+    queryKey: ["task", user?.email],
     queryFn: async () => {
-      const res = await axiosPublic.get(`/tasks?email=${user.email}`);
+      const res = await axiosPublic.get(`/mytask?email=${user.email}`);
       return res.data;
     },
   });
-  return [tasks, refetch, isLoading];
+  return [task, refetch, isLoading];
 };
 
 export default useMyTask;

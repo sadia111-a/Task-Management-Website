@@ -13,6 +13,7 @@ import AddTask from "../Pages/DashBoard/AddTask";
 import AllTask from "../Pages/DashBoard/AllTask";
 import Tasklist from "../Pages/DashBoard/Tasklist";
 import MyTask from "../Pages/DashBoard/MyTask";
+import EditTask from "../Pages/DashBoard/EditTask";
 export const router = createBrowserRouter([
   {
     path: "/",
@@ -69,6 +70,12 @@ export const router = createBrowserRouter([
       {
         path: "myTask",
         element: <MyTask></MyTask>,
+      },
+      {
+        path: "updateTask/:id",
+        element: <EditTask></EditTask>,
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/mytasks/${params.id}`),
       },
     ],
   },
