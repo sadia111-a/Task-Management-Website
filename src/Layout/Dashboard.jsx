@@ -1,12 +1,5 @@
-import {
-  FaAd,
-  FaCalendar,
-  FaHome,
-  FaList,
-  FaSearch,
-  FaShoppingCart,
-  FaUsers,
-} from "react-icons/fa";
+import { FaAd, FaHome, FaUsers } from "react-icons/fa";
+import { MdOutlineAddTask } from "react-icons/md";
 import { FaTasks } from "react-icons/fa";
 import { NavLink, Outlet } from "react-router-dom";
 import useAuth from "../hooks/useAuth";
@@ -42,6 +35,12 @@ const Dashboard = () => {
             <NavLink to="/dashboard/allTask">
               <FaTasks />
               All Task
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to="/dashboard/myTask">
+              <MdOutlineAddTask />
+              My Task
             </NavLink>
           </li>
           <li>

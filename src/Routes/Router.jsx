@@ -12,6 +12,7 @@ import UserHome from "../Pages/DashBoard/UserHome";
 import AddTask from "../Pages/DashBoard/AddTask";
 import AllTask from "../Pages/DashBoard/AllTask";
 import Tasklist from "../Pages/DashBoard/Tasklist";
+import MyTask from "../Pages/DashBoard/MyTask";
 export const router = createBrowserRouter([
   {
     path: "/",
@@ -64,6 +65,10 @@ export const router = createBrowserRouter([
       {
         path: "taskList",
         element: <Tasklist></Tasklist>,
+      },
+      {
+        path: "myTask",
+        element: <MyTask></MyTask>,
       },
     ],
   },
