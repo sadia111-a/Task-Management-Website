@@ -43,7 +43,7 @@ const TypeOfUser = () => {
   ];
 
   return (
-    <section className="bg-gray-100 p-10">
+    <section data-aos="fade-down" className="bg-gray-100 p-10">
       <h2 className="text-3xl font-bold mb-6">Who Benefits from TaskFlow?</h2>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {userTypes.map((userType, index) => (

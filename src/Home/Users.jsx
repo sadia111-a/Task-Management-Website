@@ -4,7 +4,7 @@ import { FaUserGraduate } from "react-icons/fa6";
 import TypeOfUser from "./TypeOfUser";
 const Users = () => {
   return (
-    <div>
+    <div data-aos="fade-down">
       <h2 className="text-5xl mb-12 text-center font-bold text-black my-5">
         Our Users
       </h2>
